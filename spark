@@ -1,0 +1,8 @@
+from pyspark.sql import SparkSession 
+from pyspark.sql.functions import col 
+data = [("product1", "category1"), ("product2", "category2"), ("product3", "category1"), ("product4", None), ("product5", "category3")] 
+columns = ["product", "category"] 
+df = spark.createDataFrame(data, columns) 
+pairs_df = df.select("product", "category").na.drop().distinct() 
+df.filter(col("category").isNull()).select("product").distinct()
+result_df = pairs_df.union(no_category_df) result_df.show()
