@@ -1,0 +1,14 @@
+import numpy as np
+class Figure_S:
+	def _init_(self):
+		pass
+	def circle(self,r):
+		return np.pi*pow(r,2)
+	def triangle(self,x,y,z):
+		return np.sum([x,y,z])/2 
+
+r,x,y,z=5,4,3,2
+print(Figure_S().circle(r))
+print(Figure_S().triangle(x,y,z))
+
+
